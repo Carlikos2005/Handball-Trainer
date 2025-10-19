@@ -1,0 +1,612 @@
+/* ===================== GENERAL ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0d3b66 0%, #144b8a 30%, #ffb700 120%);
+    color: #0d3b66;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===================== HEADER ===================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-volver {
+    background: linear-gradient(120deg, #ffd166, #ffb700);
+    color: #0d3b66;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 209, 102, 0.4);
+}
+
+.btn-volver:hover {
+    background: linear-gradient(120deg, #ffb700, #ff9e00);
+    transform: translateX(-5px);
+    box-shadow: 0 6px 20px rgba(255, 209, 102, 0.6);
+}
+
+.equipo-header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.escudo-equipo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #ffd166;
+    background: #f0f4f8;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.equipo-header-center h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.header-spacer {
+    width: 120px;
+}
+
+/* ===================== MAIN ===================== */
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.estadisticas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===================== MENSAJES ===================== */
+.mensaje {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.mensaje.error {
+    background: #fee;
+    color: #c00;
+    border: 1px solid #f5c6cb;
+}
+
+.mensaje.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* ===================== NAVEGACIÓN ===================== */
+.nav-estadisticas {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd166;
+    transform: translateY(-2px);
+}
+
+/* ===================== CONTENIDO PESTAÑAS ===================== */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ===================== SECCIONES ===================== */
+.seccion {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.seccion h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 1.8rem;
+}
+
+.seccion h3 {
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 1.4rem;
+}
+
+.seccion h4 {
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ===================== RESUMEN EQUIPO ===================== */
+.resumen-equipo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.estadistica-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.estadistica-card:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd166;
+    transform: translateY(-2px);
+}
+
+.estadistica-card h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.estadistica-card .valor {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffd166;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.estadistica-card .valor.positivo {
+    color: #27ae60;
+}
+
+.estadistica-card .valor.negativo {
+    color: #e74c3c;
+}
+
+/* ===================== FORMULARIOS ===================== */
+.form-estadisticas {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-grid-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 0.6rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ffd166;
+    background: white;
+    box-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+}
+
+/* ===================== BOTONES ===================== */
+.btn-guardar {
+    background: linear-gradient(120deg, #1a5f9e, #0d3b66);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(13, 59, 102, 0.4);
+}
+
+.btn-guardar:hover {
+    background: linear-gradient(120deg, #0d3b66, #1a5f9e);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 59, 102, 0.6);
+}
+
+.btn-guardar-pequeno {
+    background: linear-gradient(120deg, #1a5f9e, #0d3b66);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-guardar-pequeno:hover {
+    background: linear-gradient(120deg, #0d3b66, #1a5f9e);
+    transform: scale(1.05);
+}
+
+/* ===================== LISTA PARTIDOS ===================== */
+.partidos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.partido-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.partido-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd166;
+    transform: translateY(-2px);
+}
+
+.partido-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.fecha {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.equipos {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.resultado .marcador {
+    background: #ffd166;
+    color: #0d3b66;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.resultado .pendiente {
+    background: #95a5a6;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.btn-detalles {
+    background: linear-gradient(120deg, #ffd166, #ffb700);
+    color: #0d3b66;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-detalles:hover {
+    background: linear-gradient(120deg, #ffb700, #ff9e00);
+    transform: scale(1.05);
+}
+
+/* ===================== RANKING ===================== */
+.ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ranking-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd166;
+    transform: translateX(5px);
+}
+
+.posicion {
+
+    color: #0d3b66;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.foto-ranking {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ffd166;
+}
+
+.nombre {
+    color: white;
+    font-weight: 600;
+    flex: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.goles {
+    background: #27ae60;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.eficiencia {
+    background: #3498db;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ===================== ESTADÍSTICAS INDIVIDUALES ===================== */
+.jugadores-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.jugador-estadistica {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.jugador-estadistica:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd166;
+    transform: translateY(-2px);
+}
+
+.posicion {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.sin-datos {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    padding: 2rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .btn-volver {
+        order: 1;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+    }
+    
+    .equipo-header-center {
+        order: 3;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .header-spacer {
+        order: 2;
+        width: auto;
+    }
+    
+    .escudo-equipo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .equipo-header-center h1 {
+        font-size: 1.6rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .seccion {
+        padding: 1.5rem;
+    }
+    
+    .nav-estadisticas {
+        flex-direction: column;
+    }
+    
+    .resumen-equipo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .partido-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .ranking-item {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .jugadores-estadisticas {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-grid-estadisticas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion {
+        padding: 1rem;
+    }
+    
+    .resumen-equipo {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-grid,
+    .form-grid-estadisticas {
+        grid-template-columns: 1fr;
+    }
+    
+    .ranking-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Colores para la eficiencia */
+.eficiencia.alta {
+    background: #27ae60;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.eficiencia.media {
+    background: #f39c12;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.eficiencia.baja {
+    background: #e74c3c;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.estadisticas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+}
+
+.dato {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
